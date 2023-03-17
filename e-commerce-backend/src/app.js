@@ -9,7 +9,7 @@ import adminApi from "./routes/admin-api";
 const app = express();
 const PORT = 8080;
 const MONGODB_CONNECTION_STRING =
-  "mongodb+srv://xxxx:xxxx@mern-black.kosj6y7.mongodb.net/ishop";
+  "mongodb+srv://Usukhuusk:Sicko1219@clusteridk.mi30slj.mongodb.net/test";
 
 app.use(cors());
 app.use(express.json());
@@ -22,7 +22,5 @@ app.listen(PORT, () => {
     .then(console.log("Database successfully connected"))
     .catch((error) => console.error(error));
 
-  console.log(
-    `iSHop E-Commerce application is running on http://localhost:${PORT}`
-  );
+  console.log(`E-Commerce application is running on http://localhost:${PORT}`);
 });

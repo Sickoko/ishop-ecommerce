@@ -1,11 +1,20 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
+import { LoginContext } from "../context/login-provider";
+import { useContext } from "react";
 
 export default function SearchBar(props) {
   const [showWish, setShowWish] = useState(false);
   const [showBasket, setShowBasket] = useState(false);
   const [searchValue, setSearchValue] = useState("");
+  const { login, setLogin } = useContext(LoginContext);
+  console.log(login);
+
+  const signout = () => {
+    setLogin(false);
+    localStorage.removeItem("token");
+  };
   const notifyBasketRemove = (title) =>
     toast.error(title + "-г сагснаас амжилттай устгалаа.! ", {
       icon: <i class="bi bi-trash3"></i>,
@@ -87,7 +96,9 @@ export default function SearchBar(props) {
             <div className="signin">
               <i className="bi bi-person"></i>
               <span className="space"> </span>
-              <Link to={"/signup"}>Sign in</Link>
+              <button to={"/signup"} onClick={signout}>
+                {login ? "Sign Out" : "Sign In"}
+              </button>
             </div>
             <div className="favorite">
               <i

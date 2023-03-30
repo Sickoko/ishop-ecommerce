@@ -14,9 +14,10 @@ export default function MainMenu() {
 
   console.log(menus);
 
-  const subMenus = menus.map((subMenu) => {
+  const subMenus = menus.map((subMenu, idx) => {
     return (
       <SubMenu
+        key={idx}
         id={subMenu._id}
         title={subMenu.title}
         position={subMenu.position}
